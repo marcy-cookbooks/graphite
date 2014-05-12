@@ -13,6 +13,13 @@ mysql_connection_info = {:host => "localhost",
                          :username => "root",
                          :password => node['mysql']['server_root_password']}
 
+file "/etc/sysconfig/network" do
+  action :create_if_missing
+  owner "root"
+  group "root"
+  mode "0644"
+end
+
 if node['platform'] == "amazon" then
   releasever = "6"
 else
