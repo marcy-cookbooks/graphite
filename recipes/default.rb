@@ -7,18 +7,18 @@
 # All rights reserved - Do Not Redistribute
 #
 
-include_recipe "mysql::server"
-
-mysql_connection_info = {:host => "localhost",
-                         :username => "root",
-                         :password => node['mysql']['server_root_password']}
-
 file "/etc/sysconfig/network" do
   action :create_if_missing
   owner "root"
   group "root"
   mode "0644"
 end
+
+include_recipe "mysql::server"
+
+mysql_connection_info = {:host => "localhost",
+                         :username => "root",
+                         :password => node['mysql']['server_root_password']}
 
 if node['platform'] == "amazon" then
   releasever = "6"
