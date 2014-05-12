@@ -62,15 +62,21 @@ mysql_database_user "graphite" do
   action [:create, :grant]
 end
 
-# service "carbon-cache" do
-#   supports :status => true, :restart => true, :reload => true
-#   action [ :enable, :start ]
-# end
+execute "graphite/manage.py syncdb" do
+  command "yes no | /usr/lib/python2.6/site-packages/graphite/manage.py syncdb"
+  creates "/usr/local/graphite_manage"
+  action :run
+end
 
-# service "httpd" do
-#   supports :status => true, :restart => true, :reload => true
-#   action [ :enable, :start ]
-# end
+service "carbon-cache" do
+  supports :status => true, :restart => true, :reload => true
+  action [ :enable, :start ]
+end
+
+service "httpd" do
+  supports :status => true, :restart => true, :reload => true
+  action [ :enable, :start ]
+end
 
 
   
