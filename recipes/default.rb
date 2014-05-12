@@ -15,6 +15,8 @@ file "/etc/sysconfig/network" do
 end
 
 include_recipe "mysql::server"
+include_recipe 'openssl'
+include_recipe 'database::mysql'
 
 mysql_connection_info = {:host => "localhost",
                          :username => "root",
