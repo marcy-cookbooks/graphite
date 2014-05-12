@@ -1,0 +1,1 @@
+default[:grahite][:mysql_password] = "graphite"

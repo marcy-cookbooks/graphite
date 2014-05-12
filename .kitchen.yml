@@ -1,0 +1,17 @@
+---
+driver_plugin: docker
+
+driver_config:
+  use_sudo: false
+
+platforms:
+  - name: centos-6.4
+
+suites:
+  - name: default
+    run_list:
+      - recipe[graphite::default]
+    attributes:
+
+busser:
+  sudo: true
