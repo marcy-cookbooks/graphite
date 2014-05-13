@@ -37,5 +37,6 @@ end
 
 describe file('/etc/graphite-web/local_settings.py') do
   it { should be_file }
+  its(:content) { should match /TIME_ZONE\s*=\s*'Asia\/Tokyo'/ }
   its(:content) { should match /'PASSWORD':\s'graphite'/ }
 end

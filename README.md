@@ -14,6 +14,7 @@ Requirements
 Attributes
 ----------
 ```ruby
+default[:grahite][:timezone]       = "Asia/Tokyo"
 default[:grahite][:mysql_password] = "graphite"
 ```
 
@@ -30,6 +31,12 @@ default[:grahite][:mysql_password] = "graphite"
     <td>String</td>
     <td>MySQL password for graphite user</td>
     <td><tt>graphite</tt></td>
+  </tr>
+  <tr>
+    <td><tt>['grahite']['timezone']</tt></td>
+    <td>String</td>
+    <td>Timezone</td>
+    <td><tt>Asia/Tokyo</tt></td>
   </tr>
 </table>
 

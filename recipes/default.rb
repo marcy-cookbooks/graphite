@@ -86,5 +86,12 @@ service "httpd" do
   action [ :enable, :start ]
 end
 
+template "/etc/httpd/conf.d/graphite-web.conf" do
+  source "graphite-web.conf.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+  notifies :restart, "service[httpd]"
+end
 
   
