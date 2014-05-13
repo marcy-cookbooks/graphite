@@ -62,6 +62,14 @@ mysql_database_user "graphite" do
   action [:create, :grant]
 end
 
+directory "/usr/lib/python2.6/storage/log/webapp" do
+  owner "apache"
+  group "apache"
+  mode "0755"
+  action :create
+  recursive true
+end
+
 execute "graphite/manage.py syncdb" do
   command "yes no | /usr/lib/python2.6/site-packages/graphite/manage.py syncdb"
   creates "/usr/local/graphite_manage"
