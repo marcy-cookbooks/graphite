@@ -62,6 +62,14 @@ mysql_database_user "graphite" do
   action [:create, :grant]
 end
 
+directory "/usr/lib/python2.6/storage" do
+  owner "apache"
+  group "apache"
+  mode "0755"
+  action :create
+  recursive true
+end
+
 directory "/usr/lib/python2.6/storage/log/webapp" do
   owner "apache"
   group "apache"
