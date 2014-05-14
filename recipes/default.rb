@@ -78,6 +78,10 @@ directory "/usr/lib/python2.6/storage/log/webapp" do
   recursive true
 end
 
+link "/usr/lib/python2.6/whisper" do
+  to "/var/lib/carbon/whisper"
+end
+
 execute "graphite/manage.py syncdb" do
   command "yes no | /usr/lib/python2.6/site-packages/graphite/manage.py syncdb"
   creates "/usr/local/graphite_manage"

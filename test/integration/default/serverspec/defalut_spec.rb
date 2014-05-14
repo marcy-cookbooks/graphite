@@ -40,3 +40,15 @@ describe file('/etc/graphite-web/local_settings.py') do
   its(:content) { should match /TIME_ZONE\s*=\s*'Asia\/Tokyo'/ }
   its(:content) { should match /'PASSWORD':\s'graphite'/ }
 end
+
+describe file('/usr/lib/python2.6/storage') do
+  it { should be_directory }
+end
+
+describe file('/usr/lib/python2.6/storage/log/webapp') do
+  it { should be_directory }
+end
+
+describe file('/usr/lib/python2.6/whisper') do
+  it { should be_linked_to '/var/lib/carbon/whisper' }
+end
