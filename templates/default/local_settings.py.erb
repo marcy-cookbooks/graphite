@@ -1,10 +1,10 @@
-TIME_ZONE = '<%= node[:grahite][:timezone] %>'
+TIME_ZONE = '<%= node[:graphite][:timezone] %>'
 DATABASES = {
   'default': {
     'NAME': 'graphite',
     'ENGINE': 'django.db.backends.mysql',
     'USER': 'graphite',
-    'PASSWORD': '<%= node[:grahite][:mysql_password] %>',
+    'PASSWORD': '<%= node[:graphite][:mysql_password] %>',
     'HOST': 'localhost',
     'PORT': '3306',
   }
