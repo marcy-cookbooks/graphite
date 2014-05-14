@@ -78,8 +78,24 @@ directory "/usr/lib/python2.6/storage/log/webapp" do
   recursive true
 end
 
+directory node[:grahite][:storage_dir] do
+  owner "carbon"
+  group "carbon"
+  mode "0755"
+  action :create
+  recursive true
+end
+
+directory node[:grahite][:local_data_dir] do
+  owner "carbon"
+  group "carbon"
+  mode "0755"
+  action :create
+  recursive true
+end
+
 link "/usr/lib/python2.6/whisper" do
-  to "/var/lib/carbon/whisper"
+  to node[:graphite][:local_data_dir]
 end
 
 execute "graphite/manage.py syncdb" do
