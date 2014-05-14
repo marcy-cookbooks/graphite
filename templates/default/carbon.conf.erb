@@ -1,50 +1,50 @@
 [cache]
 
-STORAGE_DIR    = <%= node[:grahite][:storage_dir] %>
-LOCAL_DATA_DIR = <%= node[:grahite][:local_data_dir] %>
+STORAGE_DIR    = <%= node[:graphite][:storage_dir] %>
+LOCAL_DATA_DIR = <%= node[:graphite][:local_data_dir] %>
 WHITELISTS_DIR = /var/lib/carbon/lists/
 CONF_DIR       = /etc/carbon/
 LOG_DIR        = /var/log/carbon/
 PID_DIR        = /var/run/
 
-ENABLE_LOGROTATION = <%= if node[:grahite][:enable_log_rotation] then "True" else "False" end %>
+ENABLE_LOGROTATION = <%= if node[:graphite][:enable_log_rotation] then "True" else "False" end %>
 
 USER = carbon
 
 MAX_CACHE_SIZE = inf
 
-MAX_UPDATES_PER_SECOND = <%= node[:grahite][:max_updates_per_second] %>
+MAX_UPDATES_PER_SECOND = <%= node[:graphite][:max_updates_per_second] %>
 
-MAX_CREATES_PER_MINUTE = <%= node[:grahite][:max_creates_per_miniute] %>
+MAX_CREATES_PER_MINUTE = <%= node[:graphite][:max_creates_per_miniute] %>
 
-LINE_RECEIVER_INTERFACE = <%= node[:grahite][:line_receiver_interface] %>
-LINE_RECEIVER_PORT = <%= node[:grahite][:line_receiver_port] %>
+LINE_RECEIVER_INTERFACE = <%= node[:graphite][:line_receiver_interface] %>
+LINE_RECEIVER_PORT = <%= node[:graphite][:line_receiver_port] %>
 
-ENABLE_UDP_LISTENER = <%= if node[:grahite][:enable_udp_listener] then "True" else "False" end %>
-UDP_RECEIVER_INTERFACE = <%= node[:grahite][:udp_receiver_interface] %>
-UDP_RECEIVER_PORT = <%= node[:grahite][:udp_receiver_port] %>
+ENABLE_UDP_LISTENER = <%= if node[:graphite][:enable_udp_listener] then "True" else "False" end %>
+UDP_RECEIVER_INTERFACE = <%= node[:graphite][:udp_receiver_interface] %>
+UDP_RECEIVER_PORT = <%= node[:graphite][:udp_receiver_port] %>
 
-PICKLE_RECEIVER_INTERFACE = <%= node[:grahite][:pickle_receiver_interface] %>
-PICKLE_RECEIVER_PORT = <%= node[:grahite][:pickle_receiver_port] %>
+PICKLE_RECEIVER_INTERFACE = <%= node[:graphite][:pickle_receiver_interface] %>
+PICKLE_RECEIVER_PORT = <%= node[:graphite][:pickle_receiver_port] %>
 
-LOG_LISTENER_CONNECTIONS = <%= if node[:grahite][:log_listener_connections] then "True" else "False" end %>
+LOG_LISTENER_CONNECTIONS = <%= if node[:graphite][:log_listener_connections] then "True" else "False" end %>
 
-USE_INSECURE_UNPICKLER = <%= if node[:grahite][:use_insecure_unpickler] then "True" else "False" end %>
+USE_INSECURE_UNPICKLER = <%= if node[:graphite][:use_insecure_unpickler] then "True" else "False" end %>
 
-CACHE_QUERY_INTERFACE = <%= node[:grahite][:cache_query_interface] %>
-CACHE_QUERY_PORT = <%= node[:grahite][:cache_query_port] %>
+CACHE_QUERY_INTERFACE = <%= node[:graphite][:cache_query_interface] %>
+CACHE_QUERY_PORT = <%= node[:graphite][:cache_query_port] %>
 
-USE_FLOW_CONTROL = <%= if node[:grahite][:use_insecure_unpickler] then "True" else "False" end %>
+USE_FLOW_CONTROL = <%= if node[:graphite][:use_insecure_unpickler] then "True" else "False" end %>
 
-LOG_UPDATES = <%= if node[:grahite][:log_updates] then "True" else "False" end %>
-LOG_CACHE_HITS = <%= if node[:grahite][:log_cache_hits] then "True" else "False" end %>
-LOG_CACHE_QUEUE_SORTS = <%= if node[:grahite][:log_cache_queue_sorts] then "True" else "False" end %>
+LOG_UPDATES = <%= if node[:graphite][:log_updates] then "True" else "False" end %>
+LOG_CACHE_HITS = <%= if node[:graphite][:log_cache_hits] then "True" else "False" end %>
+LOG_CACHE_QUEUE_SORTS = <%= if node[:graphite][:log_cache_queue_sorts] then "True" else "False" end %>
 
-CACHE_WRITE_STRATEGY = <%= node[:grahite][:sorted] %>
+CACHE_WRITE_STRATEGY = <%= node[:graphite][:sorted] %>
 
-WHISPER_AUTOFLUSH = <%= if node[:grahite][:whisper_autoflush] then "True" else "False" end %>
+WHISPER_AUTOFLUSH = <%= if node[:graphite][:whisper_autoflush] then "True" else "False" end %>
 
-WHISPER_FALLOCATE_CREATE = <%= if node[:grahite][:whisper_fallocate_create] then "True" else "False" end %>
+WHISPER_FALLOCATE_CREATE = <%= if node[:graphite][:whisper_fallocate_create] then "True" else "False" end %>
 
 [relay]
 USER = carbon
