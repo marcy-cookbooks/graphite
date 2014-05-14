@@ -56,7 +56,7 @@ end
 mysql_database_user "graphite" do
   connection mysql_connection_info
   host "localhost"
-  password node[:grahite][:mysql_password]
+  password node[:graphite][:mysql_password]
   database_name "graphite"
   privileges [:all]
   action [:create, :grant]
@@ -78,7 +78,7 @@ directory "/usr/lib/python2.6/storage/log/webapp" do
   recursive true
 end
 
-directory node[:grahite][:storage_dir] do
+directory node[:graphite][:storage_dir] do
   owner "carbon"
   group "carbon"
   mode "0755"
@@ -86,7 +86,7 @@ directory node[:grahite][:storage_dir] do
   recursive true
 end
 
-directory node[:grahite][:local_data_dir] do
+directory node[:graphite][:local_data_dir] do
   owner "carbon"
   group "carbon"
   mode "0755"
