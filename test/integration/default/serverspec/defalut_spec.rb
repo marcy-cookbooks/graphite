@@ -49,7 +49,7 @@ describe file('/usr/lib/python2.6/storage/log/webapp') do
   it { should be_directory }
 end
 
-describe file('/usr/lib/python2.6/whisper') do
+describe file('/usr/lib/python2.6/storage/whisper') do
   it { should be_linked_to '/var/lib/carbon/whisper' }
 end
 

@@ -94,7 +94,7 @@ directory node[:graphite][:local_data_dir] do
   recursive true
 end
 
-link "/usr/lib/python2.6/whisper" do
+link "/usr/lib/python2.6/storage/whisper" do
   to node[:graphite][:local_data_dir]
 end
 
