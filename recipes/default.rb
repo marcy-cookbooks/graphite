@@ -106,4 +106,12 @@ template "/etc/httpd/conf.d/graphite-web.conf" do
   notifies :restart, "service[httpd]"
 end
 
+template "/etc/carbon/carbon.conf" do
+  source "carbon.conf.erb"
+  owner "root"
+  group "root"
+  mode "0644"
+  notifies :restart, "service[carbon-cache]"
+end
+
   

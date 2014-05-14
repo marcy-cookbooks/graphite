@@ -52,3 +52,30 @@ end
 describe file('/usr/lib/python2.6/whisper') do
   it { should be_linked_to '/var/lib/carbon/whisper' }
 end
+
+describe file('/etc/carbon/carbon.conf') do
+  it { should be_file }
+  its(:content) { should match /^STORAGE_DIR\s*=\s*\/var\/lib\/carbon\/$/ }
+  its(:content) { should match /^LOCAL_DATA_DIR\s*=\s*\/var\/lib\/carbon\/whisper\/$/ }
+  its(:content) { should match /^ENABLE_LOGROTATION\s*=\s*True$/ }
+  its(:content) { should match /^MAX_UPDATES_PER_SECOND\s*=\s*500$/ }
+  its(:content) { should match /^MAX_CREATES_PER_MINUTE\s*=\s*50$/ }
+  its(:content) { should match /^LINE_RECEIVER_INTERFACE\s*=\s*0\.0\.0\.0$/ }
+  its(:content) { should match /^LINE_RECEIVER_PORT\s*=\s*2003$/ }
+  its(:content) { should match /^ENABLE_UDP_LISTENER\s*=\s*False$/ }
+  its(:content) { should match /^UDP_RECEIVER_INTERFACE\s*=\s*0\.0\.0\.0$/ }
+  its(:content) { should match /^UDP_RECEIVER_PORT\s*=\s*2003$/ }
+  its(:content) { should match /^PICKLE_RECEIVER_INTERFACE\s*=\s*0\.0\.0\.0$/ }
+  its(:content) { should match /^PICKLE_RECEIVER_PORT\s*=\s*2004$/ }
+  its(:content) { should match /^LOG_LISTENER_CONNECTIONS\s*=\s*True$/ }
+  its(:content) { should match /^USE_INSECURE_UNPICKLER\s*=\s*False$/ }
+  its(:content) { should match /^CACHE_QUERY_INTERFACE\s*=\s*0\.0\.0\.0$/ }
+  its(:content) { should match /^CACHE_QUERY_PORT\s*=\s*7002$/ }
+  its(:content) { should match /^USE_FLOW_CONTROL\s*=\s*True$/ }
+  its(:content) { should match /^LOG_UPDATES\s*=\s*False$/ }
+  its(:content) { should match /^LOG_CACHE_HITS\s*=\s*False$/ }
+  its(:content) { should match /^LOG_CACHE_QUEUE_SORTS\s*=\s*True$/ }
+  its(:content) { should match /^CACHE_WRITE_STRATEGY\s*=\s*sorted$/ }
+  its(:content) { should match /^WHISPER_AUTOFLUSH\s*=\s*False$/ }
+  its(:content) { should match /^WHISPER_FALLOCATE_CREATE\s*=\s*True$/ }
+end
