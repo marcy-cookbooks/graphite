@@ -34,13 +34,13 @@ USE_INSECURE_UNPICKLER = <%= if node[:graphite][:use_insecure_unpickler] then "T
 CACHE_QUERY_INTERFACE = <%= node[:graphite][:cache_query_interface] %>
 CACHE_QUERY_PORT = <%= node[:graphite][:cache_query_port] %>
 
-USE_FLOW_CONTROL = <%= if node[:graphite][:use_insecure_unpickler] then "True" else "False" end %>
+USE_FLOW_CONTROL = <%= if node[:graphite][:use_flow_control] then "True" else "False" end %>
 
 LOG_UPDATES = <%= if node[:graphite][:log_updates] then "True" else "False" end %>
 LOG_CACHE_HITS = <%= if node[:graphite][:log_cache_hits] then "True" else "False" end %>
 LOG_CACHE_QUEUE_SORTS = <%= if node[:graphite][:log_cache_queue_sorts] then "True" else "False" end %>
 
-CACHE_WRITE_STRATEGY = <%= node[:graphite][:sorted] %>
+CACHE_WRITE_STRATEGY = <%= node[:graphite][:cache_write_strategy] %>
 
 WHISPER_AUTOFLUSH = <%= if node[:graphite][:whisper_autoflush] then "True" else "False" end %>
 
