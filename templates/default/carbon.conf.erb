@@ -7,7 +7,7 @@ CONF_DIR       = /etc/carbon/
 LOG_DIR        = /var/log/carbon/
 PID_DIR        = /var/run/
 
-ENABLE_LOGROTATION = <%= if node[:grahite][:enable_log_rotation] then "True" else "False" %>
+ENABLE_LOGROTATION = <%= if node[:grahite][:enable_log_rotation] then "True" else "False" end %>
 
 USER = carbon
 
@@ -20,31 +20,31 @@ MAX_CREATES_PER_MINUTE = <%= node[:grahite][:max_creates_per_miniute] %>
 LINE_RECEIVER_INTERFACE = <%= node[:grahite][:line_receiver_interface] %>
 LINE_RECEIVER_PORT = <%= node[:grahite][:line_receiver_port] %>
 
-ENABLE_UDP_LISTENER = <%= if node[:grahite][:enable_udp_listener] then "True" else "False" %>
+ENABLE_UDP_LISTENER = <%= if node[:grahite][:enable_udp_listener] then "True" else "False" end %>
 UDP_RECEIVER_INTERFACE = <%= node[:grahite][:udp_receiver_interface] %>
 UDP_RECEIVER_PORT = <%= node[:grahite][:udp_receiver_port] %>
 
 PICKLE_RECEIVER_INTERFACE = <%= node[:grahite][:pickle_receiver_interface] %>
 PICKLE_RECEIVER_PORT = <%= node[:grahite][:pickle_receiver_port] %>
 
-LOG_LISTENER_CONNECTIONS = <%= if node[:grahite][:log_listener_connections] then "True" else "False" %>
+LOG_LISTENER_CONNECTIONS = <%= if node[:grahite][:log_listener_connections] then "True" else "False" end %>
 
-USE_INSECURE_UNPICKLER = <%= if node[:grahite][:use_insecure_unpickler] then "True" else "False" %>
+USE_INSECURE_UNPICKLER = <%= if node[:grahite][:use_insecure_unpickler] then "True" else "False" end %>
 
 CACHE_QUERY_INTERFACE = <%= node[:grahite][:cache_query_interface] %>
 CACHE_QUERY_PORT = <%= node[:grahite][:cache_query_port] %>
 
-USE_FLOW_CONTROL = <%= if node[:grahite][:use_insecure_unpickler] then "True" else "False" %>
+USE_FLOW_CONTROL = <%= if node[:grahite][:use_insecure_unpickler] then "True" else "False" end %>
 
-LOG_UPDATES = <%= if node[:grahite][:log_updates] then "True" else "False" %>
-LOG_CACHE_HITS = <%= if node[:grahite][:log_cache_hits] then "True" else "False" %>
-LOG_CACHE_QUEUE_SORTS = <%= if node[:grahite][:log_cache_queue_sorts] then "True" else "False" %>
+LOG_UPDATES = <%= if node[:grahite][:log_updates] then "True" else "False" end %>
+LOG_CACHE_HITS = <%= if node[:grahite][:log_cache_hits] then "True" else "False" end %>
+LOG_CACHE_QUEUE_SORTS = <%= if node[:grahite][:log_cache_queue_sorts] then "True" else "False" end %>
 
 CACHE_WRITE_STRATEGY = <%= node[:grahite][:sorted] %>
 
-WHISPER_AUTOFLUSH = <%= if node[:grahite][:whisper_autoflush] then "True" else "False" %>
+WHISPER_AUTOFLUSH = <%= if node[:grahite][:whisper_autoflush] then "True" else "False" end %>
 
-WHISPER_FALLOCATE_CREATE = <%= if node[:grahite][:whisper_fallocate_create] then "True" else "False" %>
+WHISPER_FALLOCATE_CREATE = <%= if node[:grahite][:whisper_fallocate_create] then "True" else "False" end %>
 
 [relay]
 USER = carbon
