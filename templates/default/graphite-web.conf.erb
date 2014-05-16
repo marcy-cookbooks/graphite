@@ -1,5 +1,5 @@
 # Graphite Web Basic mod_wsgi vhost
-<% if node[:graphite][:web_port] != 80 then %>
+<% if node[:graphite][:http_port] != 80 then %>
 Listen <%= node[:graphite][:http_port] %>
 <% end %>
 <% if node[:platform] == "amazon" then %>
