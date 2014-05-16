@@ -53,6 +53,12 @@ describe file('/usr/lib/python2.6/storage/whisper') do
   it { should be_linked_to '/var/lib/carbon/whisper' }
 end
 
+describe file('/etc/httpd/conf.d/graphite-web.conf') do
+  it { should be_file }
+  its(:content) { should match /^<VirtualHost\s\*:80>$/ }
+  its(:content) { should match /^\s*ServerName\sgraphite-web$/ }
+end
+
 describe file('/etc/carbon/carbon.conf') do
   it { should be_file }
   its(:content) { should match /^STORAGE_DIR\s*=\s*\/var\/lib\/carbon\/$/ }

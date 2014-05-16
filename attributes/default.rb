@@ -1,6 +1,8 @@
 #Graphite Web Settings
-default[:graphite][:timezone]       = "Asia/Tokyo"
-default[:graphite][:mysql_password] = "graphite"
+default[:graphite][:timezone]         = "Asia/Tokyo"
+default[:graphite][:mysql_password]   = "graphite"
+default[:graphite][:http_port]        = 80
+default[:graphite][:http_server_name] = "graphite-web"
 #Carbon Settings
 default[:graphite][:storage_dir]               = "/var/lib/carbon/"
 default[:graphite][:local_data_dir]            = "/var/lib/carbon/whisper/"

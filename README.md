@@ -1,22 +1,27 @@
 graphite Cookbook
 ================
-Simply install Graphite that use MySQL Backend.
+Simple Install and configure metrics monitoring tool "Graphite".
+
+This cookbook can be used to making "Grafana" dashboard.
 
 Requirements
 ------------
-* CentOS6/Amazon Linux 2014.03.1
+* CentOS6 or Amazon Linux 2014.03.1
 * Chef 11 or higher
-* mysql - Opscode cookbook
+* mysql    - Opscode cookbook
 * database - Opscode cookbook
-* yum - Opscode cookbook
-* openssl - Opscode cookbook
+* yum      - Opscode cookbook
+* openssl  - Opscode cookbook
 
 Attributes
 ----------
+#### grahite::default
 ```ruby
 #Graphite Web Settings
-default[:grahite][:timezone]       = "Asia/Tokyo"
-default[:grahite][:mysql_password] = "graphite"
+default[:graphite][:timezone]         = "Asia/Tokyo"
+default[:graphite][:mysql_password]   = "graphite"
+default[:graphite][:http_port]        = 80
+default[:graphite][:http_server_name] = "graphite-web"
 #Carbon Settings
 default[:grahite][:storage_dir]               = "/var/lib/carbon/"
 default[:grahite][:local_data_dir]            = "/var/lib/carbon/whisper/"
@@ -42,28 +47,6 @@ default[:grahite][:cache_write_strategy]      = "sorted"
 default[:grahite][:whisper_fallocate_create]  = true
 default[:grahite][:whisper_autoflush]         = false
 ```
-
-#### grahite::default
-<table>
-  <tr>
-    <th>Key</th>
-    <th>Type</th>
-    <th>Description</th>
-    <th>Default</th>
-  </tr>
-  <tr>
-    <td><tt>['grahite']['mysql_password']</tt></td>
-    <td>String</td>
-    <td>MySQL password for graphite user</td>
-    <td><tt>graphite</tt></td>
-  </tr>
-  <tr>
-    <td><tt>['grahite']['timezone']</tt></td>
-    <td>String</td>
-    <td>Timezone</td>
-    <td><tt>Asia/Tokyo</tt></td>
-  </tr>
-</table>
 
 Usage
 -----

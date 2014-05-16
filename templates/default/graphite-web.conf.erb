@@ -1,12 +1,17 @@
 # Graphite Web Basic mod_wsgi vhost
-<% if node['platform'] == "amazon" then %>
+<% if node[:graphite][:web_port] != 80 then %>
+Listen <%= node[:graphite][:http_port] %>
+<% end %>
+<% if node[:platform] == "amazon" then %>
 <Directory "/usr/share/graphite">
     Require all granted
 </Directory>
 <% end %>
-<VirtualHost *:80>
-
-    ServerName graphite-web
+<VirtualHost *:<%= node[:graphite][:http_port] %>>
+    ServerName <%= node[:graphite][:http_server_name] %>
+    Header set Access-Control-Allow-Origin "*"
+    Header set Access-Control-Allow-Methods "GET, OPTIONS"
+    Header set Access-Control-Allow-Headers "origin, authorization, accept"
     DocumentRoot "/usr/share/graphite/webapp"
     ErrorLog /var/log/httpd/graphite-web-error.log
     CustomLog /var/log/httpd/graphite-web-access.log common
